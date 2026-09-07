@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tawseela — People Mobility AI</title>
+<meta name="description" content="Tawseela is the operating platform for organisations responsible for moving people: passenger manifests, route adherence, driver fitness and an auditable record of every trip.">
+<meta name="theme-color" content="#f4f0ef">
+<link rel="canonical" href="https://tawseela.co/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tawseela">
+<meta property="og:title" content="Tawseela — People Mobility AI">
+<meta property="og:description" content="Every passenger accounted for. Every trip on record.">
+<meta property="og:url" content="https://tawseela.co/">
+<meta property="og:image" content="https://tawseela.co/assets/hero/home-bus.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="page">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="#home">
+      <img src="assets/tawseela-logo-red-clean.png" alt="Tawseela" width="700" height="515">
+      <span class="brand__tag">People Mobility AI</span>
+    </a>
+
+    <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      Menu
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a class="nav__link" href="#school">School</a>
+      <a class="nav__link" href="#staff">Corporate</a>
+      <a class="nav__link" href="#transit">Transit</a>
+      <a class="nav__link" href="#multimodal">Multimodal</a>
+      <a class="nav__link" href="#platform">Platform</a>
+      <a class="btn btn--sm" href="#contact">Talk to us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" style="flex:1">
+
+<!-- ===================================================================== home
+     Home is the only route rendered visible in markup, so the page still has
+     content with JavaScript disabled. The router hides it when another route
+     is requested. -->
+<div class="route" data-route="home">
+
+  <section class="section section--hero grid-hero">
+    <div>
+      <p class="eyebrow eyebrow--hero">People Mobility AI</p>
+      <h1 class="h1 h1--home">Every passenger accounted for. Every trip on record.</h1>
+      <p class="lede lede--hero">Tawseela is the operating platform for organisations responsible for moving people: who is on which bus, with which driver, on which route, right now, and whether that matches the plan.</p>
+      <div class="btn-row">
+        <a class="btn" href="#contact">Talk to us</a>
+        <a class="btn-ghost" href="#platform">How the platform works</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/hero/home-bus.jpg" alt="School or staff bus at pickup, morning light" width="1200" height="670" fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--88">
+      <div style="max-width:720px;margin-bottom:56px">
+        <p class="eyebrow">Duty of care</p>
+        <h2 class="h2">The question is never where the bus is. It is whether the people on it are safe.</h2>
+        <p class="lede">Tracking tells you a vehicle's position. Tawseela tells you who boarded, who did not, whether the driver is fit to drive, and whether the route being driven is the one that was approved.</p>
+      </div>
+      <div class="cells">
+        <div class="cell">
+          <p class="cell__title">Passenger manifest</p>
+          <p class="cell__body">Boarding and alighting against the roster, per stop. Missing and unexpected passengers raise an alert while the bus is still on the route.</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">Route and pickup adherence</p>
+          <p class="cell__body">Planned versus actual for every trip: stops served, times kept, deviations explained and recorded.</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">Driver fatigue and fitness</p>
+          <p class="cell__body">Working hours, rest, licence and compliance status enforced in the roster, with in-cab driver monitoring where fitted.</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">An auditable record</p>
+          <p class="cell__body">Immutable events and provenance for every observation. When a parent, an employer or a regulator asks, the answer exists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-2 grid-2--start">
+      <div>
+        <p class="eyebrow">The operating problem</p>
+        <h2 class="h2">One plan, one record, from roster to report</h2>
+        <p class="lede">Most operations run the plan in spreadsheets and the vehicles in a vendor portal. Tawseela holds both, so a change to a driver, a route or a passenger list is reflected everywhere at once.</p>
+      </div>
+      <dl class="cap">
+        <div><dt>Driver rosters and duty cards</dt><dd>Availability, leave, hours and compliance in one roster</dd></div>
+        <div><dt>Relief rosters</dt><dd>Cover planned ahead, not found on the morning</dd></div>
+        <div><dt>Passenger rosters</dt><dd>Who rides which line, with capacity and accessibility needs</dd></div>
+        <div><dt>Routes, schedules, GTFS</dt><dd>Stops, timetables and service patterns in the open standard</dd></div>
+        <div><dt>Live operations</dt><dd>Dispatch, tracking, exceptions, ODO and tolls as they happen</dd></div>
+        <div><dt>KPIs, payroll, reporting</dt><dd>Planned vs actual, timesheets and SLA reports from the same record</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band--surface">
+    <div class="section section--80">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2 h2--lead">Plan, run, compare, improve. Every day.</h2>
+      <div class="grid-steps">
+        <div class="step">
+          <p class="step__num">01</p>
+          <p class="step__title">Plan</p>
+          <p class="step__body">Routes, rosters and duties built against real availability and constraints</p>
+        </div>
+        <div class="step">
+          <p class="step__num">02</p>
+          <p class="step__title">Optimize</p>
+          <p class="step__body">Fewer vehicles and overtime hours per passenger trip, recommended for approval</p>
+        </div>
+        <div class="step">
+          <p class="step__num">03</p>
+          <p class="step__title">Operate</p>
+          <p class="step__body">Dispatch, live tracking and exceptions handled from the plan, not beside it</p>
+        </div>
+        <div class="step">
+          <p class="step__num">04</p>
+          <p class="step__title">Reconcile</p>
+          <p class="step__body">Planned versus actual, per trip, per driver, per passenger, automatically</p>
+        </div>
+        <div class="step step--last">
+          <p class="step__num">05</p>
+          <p class="step__title">Learn</p>
+          <p class="step__body">Yesterday's reality improves tomorrow's plan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Proof</p>
+    <h2 class="h2 h2--lead">Built by a team that has run people mobility at national scale</h2>
+    <div class="grid-steps" style="margin-bottom:48px">
+      <div class="stat"><p class="stat__value">9,000+</p><p class="stat__label">vehicles in school transport fleets served</p></div>
+      <div class="stat"><p class="stat__value">100K+</p><p class="stat__label">students carried daily</p></div>
+      <div class="stat"><p class="stat__value">10M+</p><p class="stat__label">SLA-ensured trips a year</p></div>
+      <div class="stat"><p class="stat__value">2017</p><p class="stat__label">first AI driver-monitoring deployment in the region</p></div>
+    </div>
+    <p class="fineprint">School transport, airline staff transport and catering shift operations across the UAE. References available on request.</p>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--88">
+      <p class="eyebrow">Who we work with</p>
+      <h2 class="h2 h2--lead">Three kinds of operator, one duty of care, and the commuter at the end of it</h2>
+      <div class="grid-seg">
+        <a class="seg-card" href="#school">
+          <p class="seg-card__title">School transport</p>
+          <p class="seg-card__body">Children, guardians, attendance and pickup adherence. The strictest duty of care there is.</p>
+          <span class="seg-card__more">Read more →</span>
+        </a>
+        <a class="seg-card" href="#staff">
+          <p class="seg-card__title">Corporate transport</p>
+          <p class="seg-card__body">Shifts, camps, sites and airports. Welfare obligations and cost per seat, daily.</p>
+          <span class="seg-card__more">Read more →</span>
+        </a>
+        <a class="seg-card" href="#transit">
+          <p class="seg-card__title">Public transit</p>
+          <p class="seg-card__body">GTFS networks, timetables, runcutting and service-level reporting to the authority.</p>
+          <span class="seg-card__more">Read more →</span>
+        </a>
+        <a class="seg-card seg-card--featured" href="#multimodal">
+          <p class="seg-card__title">Multimodal commute</p>
+          <p class="seg-card__body">Your staff shuttle, public transit, walking and cycling planned as one journey, with time, fare and CO2 per trip.</p>
+          <span class="seg-card__more">Read more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- =================================================================== school -->
+<div class="route" data-route="school" hidden>
+
+  <section class="section section--hero grid-hero">
+    <div>
+      <p class="eyebrow eyebrow--hero">School transport</p>
+      <h1 class="h1">Every child on the right bus, at the right stop, with a driver fit to drive</h1>
+      <p class="lede lede--hero">School transport carries the strictest duty of care in passenger operations. Tawseela gives the operator, the school and the guardian one shared record of what happened on every trip.</p>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+    <div class="hero-media">
+      <img src="assets/hero/school.jpg" alt="Students boarding a school bus with attendant" width="1200" height="670" loading="lazy">
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--80 grid-2">
+      <div>
+        <p class="eyebrow">What you are accountable for</p>
+        <ul class="checklist">
+          <li>A child never left at a stop, on a bus, or handed to the wrong adult</li>
+          <li>Attendants and drivers who are licensed, rested and cleared</li>
+          <li>Routes that match what the school and the regulator approved</li>
+          <li>Answers for parents the same day, with evidence</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">What Tawseela does</p>
+        <div class="grid-cards">
+          <div class="dark-card">
+            <p class="dark-card__title">Student rosters and boarding manifest</p>
+            <p class="dark-card__body">Per-stop boarding and alighting checked against the roster; no-shows and unexpected boardings alerted live</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Pickup and drop-off adherence</p>
+            <p class="dark-card__body">Planned versus actual by stop and time window, with deviations explained and recorded</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Driver and attendant compliance</p>
+            <p class="dark-card__body">Licences, clearances, hours and fatigue monitoring enforced at rostering, not discovered on the road</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Term planning and relief</p>
+            <p class="dark-card__body">Routes rebuilt as enrolment changes; relief rosters ready before the absence, not after</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--80 grid-split">
+    <div><p class="pull">National-scale school transport: 9,000+ vehicles, 5,000+ school buses, 100,000+ students a day, 10M+ SLA-ensured trips a year.</p></div>
+    <div class="stack-right">
+      <p class="note">The team behind Tawseela delivered passenger monitoring, route optimisation and driver monitoring for one of the region's largest school transport fleets.</p>
+      <a class="link-strong" href="#contact">Talk to us about your fleet →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================================================================ corporate -->
+<div class="route" data-route="staff" hidden>
+
+  <section class="section section--hero grid-hero">
+    <div>
+      <p class="eyebrow eyebrow--hero">Corporate transport</p>
+      <h1 class="h1">Every shift covered, every worker home, every trip on record</h1>
+      <p class="lede lede--hero">Camps, sites, airports and offices run on the bus arriving when the shift starts. Tawseela plans the lines, rosters the drivers and reconciles what was promised against what ran.</p>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+    <div class="hero-media">
+      <img src="assets/hero/corporate.jpg" alt="Staff coaches at an airport or site shift change" width="1200" height="670" loading="lazy">
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--80 grid-2">
+      <div>
+        <p class="eyebrow">What you are accountable for</p>
+        <ul class="checklist">
+          <li>Worker welfare on the journey: hours, heat, rest and safe driving</li>
+          <li>Shift punctuality across dozens of lines and pickup points</li>
+          <li>Cost per seat, per line, per month, defended to finance</li>
+          <li>Contractor SLAs and invoices that match trips that actually ran</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">What Tawseela does</p>
+        <div class="grid-cards">
+          <div class="dark-card">
+            <p class="dark-card__title">Line planning from passenger rosters</p>
+            <p class="dark-card__body">Lines built from who needs to be where and when, with capacity and accessibility respected</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Driver rosters, duty cards, relief</p>
+            <p class="dark-card__body">Availability, working hours and compliance enforced in the plan; cover arranged before the gap</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Planned versus actual, per trip</p>
+            <p class="dark-card__body">Every trip reconciled against the schedule; contractor invoices and payroll timesheets from the same record</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Occupancy and cost per line</p>
+            <p class="dark-card__body">Occupancy and cost per line reported from actual trips, with roster and routing recommendations for your approval</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--80 grid-split">
+    <div><p class="pull">Airline and catering staff transport: 10M passengers a year moved around the clock.</p></div>
+    <div class="stack-right">
+      <p class="note">Tawseela's team delivered a staff transport programme for a major UAE airline group, covering airport, catering and crew lines.</p>
+      <a class="link-strong" href="#contact">Talk to us about your lines →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================================================================== transit -->
+<div class="route" data-route="transit" hidden>
+
+  <section class="section section--hero grid-hero">
+    <div>
+      <p class="eyebrow eyebrow--hero">Public transit</p>
+      <h1 class="h1">Run the network you published, and prove it to the authority</h1>
+      <p class="lede lede--hero">From GTFS network to runcut to service-level report, Tawseela keeps the timetable, the vehicles, the drivers and the actual service in one record.</p>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+    <div class="hero-media">
+      <img src="assets/hero/transit.jpg" alt="City bus at a stop, passengers boarding" width="1200" height="670" loading="lazy">
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--80 grid-2">
+      <div>
+        <p class="eyebrow">What you are accountable for</p>
+        <ul class="checklist">
+          <li>Service delivered against the published timetable, every day</li>
+          <li>Driver hours, breaks and licences within regulation</li>
+          <li>Accessible, safe service to every passenger who boards</li>
+          <li>SLA and penalty reporting the authority can audit</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">What Tawseela does</p>
+        <div class="grid-cards">
+          <div class="dark-card">
+            <p class="dark-card__title">GTFS network and timetable</p>
+            <p class="dark-card__body">Routes, stops, service patterns and calendars maintained in the open standard, imported and exported without loss</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Vehicle scheduling and runcutting</p>
+            <p class="dark-card__body">Blocks, duties and relief built against depot, vehicle class and driver constraints, recommended for approval</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Live service and exceptions</p>
+            <p class="dark-card__body">Headway and schedule adherence, missed trips and detours captured as they happen</p>
+          </div>
+          <div class="dark-card">
+            <p class="dark-card__title">Electric fleet readiness</p>
+            <p class="dark-card__body">Charge state, range and depot charging modelled in the schedule, not added afterwards</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--80 grid-split">
+    <div><p class="pull">One record from the published network to the authority's SLA report.</p></div>
+    <div class="stack-right">
+      <p class="note">Tawseela is built for contracted operators and authorities who must evidence service delivered, not just vehicles moved.</p>
+      <a class="link-strong" href="#contact">Talk to us about your network →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- =============================================================== multimodal -->
+<div class="route" data-route="multimodal" hidden>
+
+  <section class="section section--hero grid-hero">
+    <div>
+      <p class="eyebrow eyebrow--hero">Multimodal commute</p>
+      <h1 class="h1">Commute wisely: one journey across shuttle, transit and the last mile</h1>
+      <p class="lede lede--hero">Tawseela Commute is the passenger-facing layer of the platform. Your people plan and run a door-to-door journey that combines your shuttle lines with public transit, walking and cycling, and see time, fare and CO2 before they leave.</p>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+
+    <div class="app-stage" role="img" aria-label="Three Tawseela Commute app screens: a multimodal route on a Dubai map, a trip breakdown by leg with CO2 per leg, and a rider profile showing CO2 credits earned this week.">
+      <div class="app-stage__glow"></div>
+      <div class="app-stage__frame" aria-hidden="true">
+        <div class="app-stage__row">
+
+          <!-- route map -->
+          <div class="phone-a">
+            <div class="phone">
+              <div class="phone__map"></div>
+              <svg class="phone__route" viewBox="0 0 214 300">
+                <path d="M98 90 L150 140" stroke="#A855F7" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M150 140 L66 258" stroke="#F79E1B" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M66 258 L40 300" stroke="#5D63FF" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M150 140 L184 290" stroke="#5D63FF" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="98" cy="80" r="14" fill="#060606"/>
+                <circle cx="98" cy="80" r="4" fill="#fff"/>
+                <circle cx="150" cy="140" r="9" fill="#A855F7"/>
+                <circle cx="66" cy="258" r="9" fill="#F79E1B"/>
+              </svg>
+              <div class="trip-card">
+                <div class="trip-card__head">
+                  <div>
+                    <span class="pill">Leave At 5:00</span>
+                    <p style="margin:10px 0 0;font-size:9px;color:#4BA131;font-weight:500">Leaving Now</p>
+                    <p style="margin:2px 0 0;font-size:9px;font-weight:600">1 H 6 Min</p>
+                  </div>
+                  <div class="donut">
+                    <div class="donut__hole"><span class="donut__cap">Total CO.2</span><span class="donut__num">1223</span></div>
+                  </div>
+                </div>
+                <div class="trip-card__rule"></div>
+                <p style="margin:0;font-size:8px;font-weight:600">Al Sheef Road . Dubai</p>
+                <p style="margin:6px 0 0;font-size:8px;font-weight:600">Shariga City Center</p>
+                <p style="margin:6px 0 0;font-size:7px;color:#545454">🚶 12 · <span class="pill pill--inline">Red</span> · 🚶 12 · <span class="pill pill--inline pill--green">Green</span></p>
+              </div>
+              <div class="phone__cta">Select Trip<span>20.00 AED</span></div>
+            </div>
+          </div>
+
+          <!-- trip details -->
+          <div class="phone-b">
+            <div class="phone">
+              <div class="phone__map phone__map--top"></div>
+              <div class="sheet">
+                <div class="sheet__grab"></div>
+                <div class="sheet__head">
+                  <div>
+                    <p class="sheet__title">Your Trip Details</p>
+                    <span class="pill" style="margin-top:6px">Leave At 5:00</span>
+                  </div>
+                  <div class="donut">
+                    <div class="donut__hole"><span class="donut__cap">Total CO.2</span><span class="donut__num">1223</span></div>
+                  </div>
+                </div>
+                <div style="display:grid;gap:8px">
+                  <div class="leg">
+                    <div class="leg__icon" style="background:#5D63FF">🚲</div>
+                    <div class="leg__text">
+                      <p class="leg__name">Dubai Jumeirah Circle Village</p>
+                      <p class="leg__meta">318 M · 5:00</p>
+                    </div>
+                    <div class="donut donut--sm" style="background:conic-gradient(#22CBA9 0 72%,#f0f0f0 72% 100%)">
+                      <div class="donut__hole"><span class="donut__cap">CO.2</span><span class="donut__num">620</span></div>
+                    </div>
+                  </div>
+                  <div class="leg">
+                    <div class="leg__icon" style="background:#F79E1B">🚌</div>
+                    <div class="leg__text">
+                      <p class="leg__name">Mall Of Emiratis 2</p>
+                      <p class="leg__meta">318 M · 5:10 · Stops 1 · 10 Mins</p>
+                    </div>
+                    <div class="donut donut--sm" style="background:conic-gradient(#FFA640 0 72%,#f0f0f0 72% 100%)">
+                      <div class="donut__hole"><span class="donut__cap">CO.2</span><span class="donut__num">850</span></div>
+                    </div>
+                  </div>
+                  <div class="leg">
+                    <div class="leg__icon" style="background:#EB2026">🚌</div>
+                    <div class="leg__text">
+                      <p class="leg__name">Abu Hail Bus Station</p>
+                      <p class="leg__meta">318 M · 5:00 · Stops 1 · 10 Mins</p>
+                    </div>
+                    <div class="donut donut--sm" style="background:conic-gradient(#FFA640 0 72%,#f0f0f0 72% 100%)">
+                      <div class="donut__hole"><span class="donut__cap">CO.2</span><span class="donut__num">1050</span></div>
+                    </div>
+                  </div>
+                  <div class="leg">
+                    <div class="leg__icon" style="background:#A855F7">🛴</div>
+                    <div class="leg__text">
+                      <p class="leg__name">Arrived To Jabir Tower</p>
+                      <p class="leg__meta">318 M · 5:00</p>
+                    </div>
+                    <div class="donut donut--sm">
+                      <div class="donut__hole"><span class="donut__cap">CO.2</span><span class="donut__num">1223</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="phone__cta">Select Trip<span>20.00 AED</span></div>
+            </div>
+          </div>
+
+          <!-- profile / credits -->
+          <div class="phone-c">
+            <div class="phone">
+              <div class="profile-head">
+                <img src="assets/app/avatar.png" alt="" width="221" height="233" loading="lazy">
+                <div>
+                  <p class="profile-head__hi">Welcome Back,</p>
+                  <p class="profile-head__name">Mo Akasha</p>
+                </div>
+              </div>
+              <div class="credits-card">
+                <div class="credits-card__row">
+                  <div class="credits-ring">
+                    <div class="credits-ring__hole">
+                      <span style="font-size:13px;font-weight:700">1500</span>
+                      <span style="font-size:6px;color:#545454">CO2 Credits</span>
+                      <span style="font-size:5px;color:#aaa">gained this week</span>
+                    </div>
+                  </div>
+                  <div class="credits-legend">
+                    <span><i style="background:#F79E1B"></i>Metro</span>
+                    <span><i style="background:#E00035"></i>Cars</span>
+                    <span><i style="background:#22CBA9"></i>Bus</span>
+                    <span><i style="background:#3B82F6"></i>Others</span>
+                  </div>
+                </div>
+                <p class="credits-card__caption">What a nice achievement this week</p>
+                <div class="credits-card__cta">Redeem</div>
+              </div>
+              <div class="menu-list">
+                <div><span>Edit my Profile</span><span>›</span></div>
+                <div><span>Manage Payments</span><span>›</span></div>
+                <div><span>Preferences</span><span>›</span></div>
+                <div><span>Invite friends &amp; earn credits</span><span>›</span></div>
+                <div><span>About the app</span><span>›</span></div>
+              </div>
+              <p class="app-version">Tawseela<br><span>App Version 1.1.00</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--80">
+      <div style="max-width:720px;margin-bottom:48px">
+        <p class="eyebrow">Why an operator offers it</p>
+        <h2 class="h2">Fewer cars in the car park, fuller buses, and an emissions number you can defend</h2>
+        <p class="lede">Transport accounts for roughly a fifth to a quarter of global greenhouse gas emissions. For an employer or a school, the daily commute is the largest emissions line they can actually influence.</p>
+      </div>
+      <div class="cells">
+        <div class="cell">
+          <p class="cell__title">Modes in one plan</p>
+          <p class="cell__body">Your shuttle and staff lines, public transit from GTFS, walking, cycling and ride-hail as legs of one journey</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">Decide with data</p>
+          <p class="cell__body">ETA, fare, CO2 and weather for every option, so the greener choice is also the convenient one</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">Carbon credits per trip</p>
+          <p class="cell__body">Avoided emissions calculated per journey and credited to the commuter; redeemable with partners you choose</p>
+        </div>
+        <div class="cell">
+          <p class="cell__title">Same record as operations</p>
+          <p class="cell__body">Demand from the app feeds line planning; occupancy and CO2 flow into the operator's reports and ESG disclosures</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section grid-2 grid-2--start">
+    <div>
+      <p class="eyebrow">Emissions, measured</p>
+      <h2 class="h2 h2--sm">CO2 per trip from distance and vehicle class, not from estimates</h2>
+      <p class="lede" style="font-size:17px">The same model has been run on a full city GTFS plan, aggregating 81,000 daily trips and assigning emissions by vehicle type, and on 10 million kilometres of real commuter travel.</p>
+    </div>
+    <div class="factors">
+      <div class="factor">
+        <p class="factor__mode">Walk · cycle</p>
+        <p class="factor__value">0</p>
+        <p class="factor__unit">g CO2 / km</p>
+      </div>
+      <div class="factor">
+        <p class="factor__mode">Metro · tram</p>
+        <p class="factor__value">86</p>
+        <p class="factor__unit">g CO2 / km</p>
+      </div>
+      <div class="factor">
+        <p class="factor__mode">Bus</p>
+        <p class="factor__value">156</p>
+        <p class="factor__unit">g CO2 / km</p>
+      </div>
+      <div class="factor">
+        <p class="factor__mode">Private car</p>
+        <p class="factor__value factor__value--brand">237</p>
+        <p class="factor__unit">g CO2 / km</p>
+      </div>
+      <p class="factors__note">Indicative per-passenger factors used in the Tawseela CO2 model; actual figures are computed per vehicle class and occupancy.</p>
+    </div>
+  </section>
+
+  <section class="band--surface">
+    <div class="section section--72 grid-split">
+      <p class="pull">Part of your Tawseela subscription, offered to your commuters under your brand.</p>
+      <div class="stack-right">
+        <p class="note">Tawseela Commute is an add-on module for operators and employers on the platform. No consumer fees, no ride commissions: the operator subscribes, the commuter simply uses it.</p>
+        <a class="link-strong" href="#contact">Talk to us about your commute programme →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================================================================= platform -->
+<div class="route" data-route="platform" hidden>
+
+  <section class="section section--hero" style="padding-bottom:72px">
+    <p class="eyebrow eyebrow--hero">Platform</p>
+    <h1 class="h1" style="max-width:900px">One People Mobility domain. Every vendor replaceable.</h1>
+    <p class="lede" style="max-width:720px;font-size:20px">Tawseela owns the semantics of moving people: passengers, drivers, rosters, routes, trips and what actually happened. Telematics engines, devices, optimisation solvers and AI models plug in underneath and can be swapped without touching your operation.</p>
+  </section>
+
+  <section class="section section--top0">
+    <div class="stack">
+      <div class="stack__caps">
+        <div class="stack__cap">Planning</div>
+        <div class="stack__cap">Optimisation</div>
+        <div class="stack__cap">Operations</div>
+        <div class="stack__cap">Intelligence</div>
+      </div>
+      <div class="stack__row stack__row--domain">
+        <span class="stack__name">Canonical People Mobility domain</span>
+        <span class="stack__desc">Passengers · drivers · rosters · duties · vehicles · routes · trips · actual state, with provenance</span>
+      </div>
+      <div class="stack__row">
+        <span class="stack__name">Events, facts, history</span>
+        <span class="stack__desc">Immutable observations and auditable state transitions</span>
+      </div>
+      <div class="stack__row">
+        <span class="stack__name">Governed agents</span>
+        <span class="stack__desc">Every automated action passes a policy gate, an approval path and an audit record</span>
+      </div>
+      <div class="stack__row stack__row--capture">
+        <span class="stack__name">Inbound Automotive AI</span>
+        <span class="stack__desc">Device abstraction, edge vision, capture, normalisation and provenance across 3,800+ compatible devices</span>
+      </div>
+      <div class="stack__row stack__row--engines">
+        <span class="stack__name">Engines and devices</span>
+        <span class="stack__desc">Wialon · flespi · Teltonika · Ruptela · Howen · Streamax · CAN · EV · OEM APIs, all replaceable</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--maroon">
+    <div class="section section--88">
+      <h2 class="h2 h2--lead">Four commitments, written into the architecture</h2>
+      <div class="commitments">
+        <div class="commitment">
+          <p class="commitment__title">Vendor neutral</p>
+          <p class="commitment__body">Replace a telematics engine, a hardware vendor, a solver or an AI model without rewriting the domain. Your data and your identifiers stay yours.</p>
+        </div>
+        <div class="commitment">
+          <p class="commitment__title">Human-approved automation</p>
+          <p class="commitment__body">Optimisation produces candidate plans. Nothing changes a roster, a route or a trip without validation and an approval you control.</p>
+        </div>
+        <div class="commitment">
+          <p class="commitment__title">Provenance on everything</p>
+          <p class="commitment__body">Every externally sourced fact carries where it came from, when it was observed and how confident it is. Events are never rewritten.</p>
+        </div>
+        <div class="commitment">
+          <p class="commitment__title">Electric and autonomous ready</p>
+          <p class="commitment__body">Energy state, charging and autonomy capability are attributes of the same domain, not a separate product to buy later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bot0 grid-2 grid-2--start">
+    <div>
+      <p class="eyebrow">Commercial model</p>
+      <h2 class="h2 h2--sm">Software as a service, priced per vehicle</h2>
+    </div>
+    <ul class="rules">
+      <li>Annual subscription per vehicle, inclusive of connectivity, with volume tiers as your fleet grows</li>
+      <li>Planning, operations, compliance and reporting included; optimisation and intelligence as add-on modules</li>
+      <li>Works with your existing tracking hardware where compatible; installed bundles available for new vehicles</li>
+      <li>Your data, your identity provider, your tenancy. No revenue share, no marketplace, no resale of your capacity</li>
+    </ul>
+  </section>
+
+  <section class="section grid-2 grid-2--start">
+    <div>
+      <p class="eyebrow">Security and tenancy</p>
+      <h2 class="h2 h2--sm">Your operation is a tenant. Nothing crosses the line without your policy.</h2>
+    </div>
+    <ul class="rules">
+      <li>Your own identity provider; grants provisioned per user, no shared credentials</li>
+      <li>Tenant-scoped data, versioned read policies, encrypted sessions</li>
+      <li>Durable approvals and audit trail for every action, human or agent</li>
+      <li>Shadow-first onboarding: your live data is captured read-only, reconciled and signed off before anything is promoted</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- ================================================================== contact -->
+<div class="route" data-route="contact" hidden>
+
+  <section class="section grid-2 grid-2--start">
+    <div>
+      <p class="eyebrow eyebrow--hero">Talk to us</p>
+      <h1 class="h1">Tell us what you move, and how many</h1>
+      <p class="lede lede--hero" style="max-width:520px;font-size:19px">We start with a shadow-first look at your current operation, read-only, against your own plan. You see planned versus actual on your fleet before you commit to anything.</p>
+      <div class="contact-lines">
+        <a href="mailto:hello@tawseela.co">hello@tawseela.co</a>
+        <span style="color:var(--muted)">Dubai, United Arab Emirates</span>
+      </div>
+    </div>
+
+    <form class="form" id="contact-form" novalidate>
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Organisation<input type="text" name="org" autocomplete="organization"></label>
+      <label>Work email<input type="email" name="email" autocomplete="email" required></label>
+      <label>What do you move?
+        <select name="segment">
+          <option>School transport</option>
+          <option>Corporate transport</option>
+          <option>Public transit</option>
+          <option>Other passenger operation</option>
+        </select>
+      </label>
+      <label>Fleet size<input type="text" name="fleet" placeholder="e.g. 120 buses, 300 drivers"></label>
+      <button class="btn" type="submit" id="contact-submit">Send</button>
+      <p class="form__status" id="contact-status" role="status" aria-live="polite" hidden></p>
+    </form>
+  </section>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="assets/tawseela-logo-red-clean.png" alt="Tawseela" width="700" height="515">
+      <p class="site-footer__blurb">People Mobility AI for school, corporate and public transport operators.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="#school">School transport</a>
+      <a href="#staff">Corporate transport</a>
+      <a href="#transit">Public transit</a>
+      <a href="#multimodal">Multimodal commute</a>
+      <a href="#platform">Platform</a>
+      <a href="#contact">Talk to us</a>
+    </nav>
+    <a class="powered" href="https://inbound.ae">
+      <span class="powered__label">Powered by</span>
+      <span class="powered__name">Inbound Automotive AI</span>
+      <span class="powered__href">inbound.ae →</span>
+    </a>
+  </div>
+  <div class="site-footer__legal">© 2026 Tawseela · tawseela.co</div>
+</footer>
+
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
