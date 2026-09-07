@@ -119,7 +119,18 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
 
 ## Deploy
 
+Live at <https://tawseela-site.onrender.com> — Render static site
+`tawseela-site`, auto-deploying on every push to `main`.
+
 `render.yaml` is a Render static-site blueprint: publish path `.`, all paths
 rewritten to `/index.html` so deep links survive a refresh, long cache on
 `/assets/*`. Any other static host works the same way — the only requirement is
 the SPA rewrite.
+
+### Custom domain
+
+`tawseela.co` is not attached yet. It currently sits on Above.com parking
+nameservers, so records edited at the registrar have no effect until the
+nameservers move first. [docs/DNS-SETUP.md](docs/DNS-SETUP.md) is the runbook:
+current state, the two records Render needs, the order to do them in, and how to
+verify.
