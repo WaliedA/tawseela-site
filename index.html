@@ -75,6 +75,81 @@
     </div>
   </section>
 
+  <!-- Live journey manifest: the record the supervisor, the school and the
+       guardian all read. Static snapshot of one morning journey. -->
+  <section class="section section--top0">
+    <p class="eyebrow">Live journey manifest</p>
+    <h2 class="h2 h2--sm h2--panel">One record the supervisor, the school and the guardian all read</h2>
+
+    <div class="manifest">
+      <div class="manifest__main">
+        <div class="manifest__head">
+          <div>
+            <b class="manifest__journey">Journey 14-AM · Al Barsha → Wellington campus</b>
+            <p class="manifest__meta">Bus ET-4471 · Duty card D-221 · Driver R. Kumar · Supervisor F. Noor</p>
+          </div>
+          <p class="manifest__count">
+            <b class="manifest__boarded">42<span> / 44</span></b>
+            <span class="manifest__of">boarded</span>
+          </p>
+        </div>
+
+        <div class="manifest__row manifest__row--head">
+          <span>Sched.</span><span>Stop</span><span>Planned</span><span>Boarded</span><span>Status</span>
+        </div>
+        <div class="manifest__row">
+          <span class="manifest__time">06:20</span>
+          <span class="manifest__stop">Stop 1 · Al Barsha South 3</span>
+          <span>12</span><span>12</span>
+          <span class="manifest__status">Departed 06:21</span>
+        </div>
+        <div class="manifest__row">
+          <span class="manifest__time">06:28</span>
+          <span class="manifest__stop">Stop 2 · Al Barsha 2, Gate B</span>
+          <span>15</span><span>15</span>
+          <span class="manifest__status">Departed 06:29</span>
+        </div>
+        <div class="manifest__row manifest__row--alert">
+          <span class="manifest__time">06:37</span>
+          <span class="manifest__stop">Stop 3 · Al Sufouh Villas</span>
+          <span>10</span><span>8</span>
+          <span class="manifest__status">2 not boarded · guardians notified</span>
+        </div>
+        <div class="manifest__row">
+          <span class="manifest__time">06:44</span>
+          <span class="manifest__stop">Stop 4 · Knowledge Park</span>
+          <span>7</span><span>7</span>
+          <span class="manifest__status">Departed 06:44</span>
+        </div>
+        <div class="manifest__row">
+          <span class="manifest__time">06:58</span>
+          <span class="manifest__stop">Gate 4 · Wellington campus</span>
+          <span>44</span><span>·</span>
+          <span class="manifest__status">Arriving in 4 min</span>
+        </div>
+      </div>
+
+      <div class="manifest__side">
+        <div>
+          <p class="micro">Driver · duty card D-221</p>
+          <b class="manifest__driver">R. Kumar</b>
+          <p class="manifest__detail">On duty 3h 12m · rest 9h 40m before shift · licence valid</p>
+        </div>
+        <div class="checks">
+          <div><span>Fatigue · in-cab vision</span><b>None</b></div>
+          <div><span>Distraction</span><b>None</b></div>
+          <div><span>Speed vs limit</span><b>Compliant</b></div>
+        </div>
+        <div>
+          <p class="micro">Route adherence</p>
+          <div class="meter"><i></i></div>
+          <p class="manifest__detail">On planned route · 1 min behind schedule</p>
+        </div>
+        <p class="manifest__foot">Supervisor app, parents app and school dashboard all read this record.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="band--maroon">
     <div class="section section--88">
       <div style="max-width:720px;margin-bottom:56px">
@@ -119,6 +194,14 @@
         <div><dt>KPIs, payroll, reporting</dt><dd>Planned vs actual, timesheets and SLA reports from the same record</dd></div>
       </dl>
     </div>
+  </section>
+
+  <!-- Modules. Tab list and panel are built by app.js from the MODULES data
+       so the five module descriptions live in one place. -->
+  <section class="section section--top0">
+    <p class="eyebrow">Modules</p>
+    <div class="tabs" role="tablist" aria-label="Modules" id="module-tabs"></div>
+    <div class="module" id="module-panel" role="tabpanel" tabindex="0"></div>
   </section>
 
   <section class="band--surface">
@@ -308,6 +391,51 @@
     </div>
   </section>
 
+  <!-- Relief roster board: a sick call at 04:50 covered by 05:10. Bars are
+       placed on a six-column half-hour grid; see .board__row. -->
+  <section class="section section--80 section--bot0">
+    <p class="eyebrow">The operating problem</p>
+    <div class="board-intro">
+      <h2 class="h2 h2--sm">Rosters that hold on a bad morning</h2>
+      <p class="board-intro__note">Duty cards, relief rosters, driver availability and rest compliance on one board. A sick call at 04:50 becomes a covered journey by 05:10.</p>
+    </div>
+
+    <div class="board">
+      <div class="board__head">
+        <b class="board__title">Relief roster · Depot 3 · Tuesday AM</b>
+        <div class="chips">
+          <span class="chip">62 duty cards</span>
+          <span class="chip">58 drivers available</span>
+          <span class="chip chip--alert">4 relief needed</span>
+        </div>
+      </div>
+      <div class="board__row board__row--head">
+        <span>Driver</span><span>05:30</span><span>06:00</span><span>06:30</span><span>07:00</span><span>07:30</span><span>08:00</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>R. Kumar</b><br><span class="board__state">rest 9h 40m · fit</span></span>
+        <span class="bar" style="grid-column:2 / span 3">D-221 · Journey 14-AM · 44 pax</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>A. Fernandes</b><br><span class="board__state">rest 7h 05m · fit</span></span>
+        <span class="bar" style="grid-column:3 / span 3">D-224 · Journey 9-AM · 38 pax</span>
+      </div>
+      <div class="board__row board__row--alert">
+        <span class="board__who"><b>M. Siddiqui</b><br><span class="board__state board__state--flag">sick · reported 04:50</span></span>
+        <span class="bar bar--open" style="grid-column:2 / span 3">D-230 · relief needed · 3 eligible</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>S. Okafor</b><br><span class="board__state">relief pool · fit</span></span>
+        <span class="bar bar--ghost" style="grid-column:5 / span 2">Standby · eligible for D-230</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>J. Dela Cruz</b><br><span class="board__state">rest 10h 20m · fit</span></span>
+        <span class="bar" style="grid-column:2 / span 2">D-218 · 6-AM</span>
+        <span class="bar" style="grid-column:5 / span 2">D-241 · 7-AM</span>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--80 grid-split">
     <div><p class="pull">Airline and catering staff transport: 10M passengers a year moved around the clock.</p></div>
     <div class="stack-right">
@@ -364,6 +492,74 @@
             <p class="dark-card__body">Charge state, range and depot charging modelled in the schedule, not added afterwards</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service-delivery board: scheduled trips against the trips that ran,
+       ending in the line the authority sees. -->
+  <section class="section section--80 section--bot0">
+    <p class="eyebrow">The operating problem</p>
+    <div class="board-intro">
+      <h2 class="h2 h2--sm">Service delivered against the timetable you published</h2>
+      <p class="board-intro__note">Every scheduled trip reconciled to the trip that actually ran, from GTFS timetable to AVL trace. The SLA report is the same record the controller worked from, not a spreadsheet built afterwards.</p>
+    </div>
+
+    <div class="board">
+      <div class="board__head">
+        <b class="board__title">Route 12 · Marina → Business Bay · Tuesday AM peak</b>
+        <div class="chips">
+          <span class="chip">7 trips scheduled</span>
+          <span class="chip">6 operated</span>
+          <span class="chip">83% on time</span>
+          <span class="chip chip--alert">1 missed · 1 late</span>
+        </div>
+      </div>
+      <div class="board__row board__row--head">
+        <span>Trip · block</span><span>06:00</span><span>06:15</span><span>06:30</span><span>06:45</span><span>07:00</span><span>07:15</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>12-01 · Block 4</b><br><span class="board__state">on time · +0:40</span></span>
+        <span class="bar" style="grid-column:2 / span 2">V-118 · 41 pax · 12 stops</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>12-02 · Block 7</b><br><span class="board__state">on time · −0:15</span></span>
+        <span class="bar" style="grid-column:3 / span 2">V-122 · 48 pax · 12 stops</span>
+      </div>
+      <div class="board__row board__row--alert">
+        <span class="board__who"><b>12-03 · Block 4</b><br><span class="board__state board__state--flag">missed · breakdown 06:22</span></span>
+        <span class="bar bar--open" style="grid-column:4 / span 2">V-118 · trip not operated · incident logged</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>12-04 · Block 9</b><br><span class="board__state">on time · +1:10</span></span>
+        <span class="bar" style="grid-column:4 / span 2">V-131 · 52 pax · 12 stops</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>12-05 · Block 7</b><br><span class="board__state board__state--flag">late · +6:30 at stop 5</span></span>
+        <span class="bar bar--late" style="grid-column:5 / span 2">V-122 · 55 pax · SZR detour</span>
+      </div>
+      <div class="board__row">
+        <span class="board__who"><b>12-06 · Relief</b><br><span class="board__state">on time · +0:20</span></span>
+        <span class="bar bar--ghost" style="grid-column:6 / span 2">V-140 · covers 12-03 gap · 37 pax</span>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <p class="kpi__label">Trips operated</p>
+        <p class="kpi__value">6 / 7 <small>85.7%</small></p>
+      </div>
+      <div class="kpi">
+        <p class="kpi__label">On-time at timing points</p>
+        <p class="kpi__value">83% <small>−1 min / +5 min window</small></p>
+      </div>
+      <div class="kpi">
+        <p class="kpi__label">Missed km</p>
+        <p class="kpi__value">14.2 <small>of 99.4 scheduled</small></p>
+      </div>
+      <div class="kpi kpi--alert">
+        <p class="kpi__label">Authority report</p>
+        <p class="kpi__body">Trip 12-03 cause-coded <b>vehicle fault</b>, AVL trace and incident attached. Penalty line pre-filled, disputable.</p>
       </div>
     </div>
   </section>

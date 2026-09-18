@@ -45,6 +45,18 @@ Hash-routed, one document, no page reloads:
 Home is rendered visible in the markup, so the page still has content with
 JavaScript disabled. Unknown hashes fall back to home.
 
+Three parts of the page are data-driven or interactive rather than static
+copy:
+
+- **Journey manifest** (home) — a static snapshot of one morning journey,
+  boarding counts per stop with the exception row highlighted.
+- **Modules** (home) — five tabs (Manifest, Duty, Guardian, Roster, Coach)
+  built by `assets/app.js` from the `MODULES` array, so each module's copy
+  lives in one place. Arrow keys move between tabs.
+- **Operations boards** (corporate, transit) — the relief roster and the
+  service-delivery board. Both are a six-column half-hour grid; each bar is
+  placed with `grid-column`, so its span is its duty or trip window.
+
 ## Design source
 
 Ported from the Claude Design project **Tawseela slide deck planning**, file
@@ -82,6 +94,11 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
   overflows below ~760px; the design handoff listed a hamburger as an open
   item. A hamburger is implemented here, in the design's own language.
 - **Contact form.** See below.
+- **Module illustrations.** The five images behind the Modules tabs are the
+  only assets not self-hosted — they are still Gamma CDN URLs in the `MODULES`
+  array in `assets/app.js`, because the CDN blocks the environment the site was
+  built from. If one fails to load the `<img>` is removed and the slot's label
+  shows, so a dead URL never renders as a broken image.
 - **`assets/app/map-bg.png`.** The original 1173×696 asset could not be
   retrieved intact — only the top 51% of the PNG survived the design API's
   256 KiB per-file cap. The shipped file rebuilds full height by repeating the
@@ -111,11 +128,14 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
 3. **Replace the hero photography.** `assets/hero/*.jpg` are the
    Gamma-generated placeholders from the design, downloaded and recompressed.
    Swap in owned photography.
-4. **Decide on SEO.** Hash routing means the six inner views are not separately
+4. **Self-host the module illustrations.** Download the five Gamma images
+   referenced in `MODULES` (`assets/app.js`) into `assets/modules/` and
+   repoint them, so the site carries no third-party image dependency.
+5. **Decide on SEO.** Hash routing means the six inner views are not separately
    indexable. If organic search on segment terms matters, split them into real
    paths (`/school-transport`, `/corporate-transport`, …) — the markup is
    already one `<div data-route>` per view, so the split is mechanical.
-5. **Add analytics and a privacy notice** if either is required.
+6. **Add analytics and a privacy notice** if either is required.
 
 ## Deploy
 

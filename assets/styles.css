@@ -812,6 +812,333 @@ img { max-width: 100%; }
   color: #545454;
 }
 
+/* ---------------------------------------------------------------- journey manifest */
+
+.h2--panel { margin-bottom: 32px; max-width: 760px; }
+
+.manifest {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr));
+}
+.manifest__main { min-width: 0; }
+.manifest__head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.manifest__journey { font-size: 16px; font-weight: 700; }
+.manifest__meta { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.manifest__count { display: flex; align-items: baseline; gap: 8px; }
+.manifest__boarded {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+.manifest__boarded span { color: var(--muted); }
+.manifest__of { font-size: 13px; color: var(--muted); }
+
+/* Five columns: scheduled time, stop, planned, boarded, status. */
+.manifest__row {
+  display: grid;
+  grid-template-columns: 56px minmax(140px, 1fr) 56px 56px minmax(100px, 170px);
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #EFE6E5;
+  font-size: 13px;
+}
+.manifest__row--head {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.manifest__row--alert { background: var(--rose-soft); }
+.manifest__stop { font-weight: 600; }
+.manifest__time,
+.manifest__status { color: var(--muted); }
+.manifest__row--alert .manifest__status { color: var(--brand); font-weight: 700; }
+
+.manifest__side {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 13px;
+}
+.micro {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.manifest__driver { font-size: 16px; font-weight: 700; }
+.manifest__detail { margin: 2px 0 0; }
+.checks {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+.checks div { display: flex; justify-content: space-between; }
+.checks span { color: var(--muted); }
+.meter { height: 6px; background: var(--line); border-radius: 3px; }
+.meter i { display: block; width: 100%; height: 100%; background: var(--brand); border-radius: 3px; }
+.manifest__foot { margin-top: auto; color: var(--muted); }
+
+/* ---------------------------------------------------------------- module tabs */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs__btn {
+  margin-bottom: -1px;
+  padding: 14px 18px;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--muted);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs__btn:hover { color: var(--ink); }
+.tabs__btn[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--brand); }
+
+.module {
+  margin-top: 28px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
+}
+.module__slug {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.module__title {
+  margin: 18px 0 14px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.module__body { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.module__figures {
+  display: grid;
+  grid-template-columns: minmax(160px, 200px) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+  align-items: start;
+}
+.module__stat {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.module__stat-value { font-family: var(--serif); font-size: 34px; line-height: 1; letter-spacing: -.02em; }
+.module__stat-label {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.module__points {
+  margin: 0;
+  padding: 2px 0 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.module__points li { display: flex; gap: 10px; }
+.module__points li::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.module__aside { display: flex; flex-direction: column; gap: 14px; }
+
+/* The module illustration is the one asset still served from Gamma's CDN.
+   If it fails, the script drops the <img> and this caption shows through. */
+.module__shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--rose-soft);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.module__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.module__shot-label {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+.module__outcome { padding: 22px 24px; background: var(--maroon); color: #fff; border-radius: 6px; }
+.module__outcome-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+.module__outcome-who { margin: 8px 0 0; font-size: 17px; font-weight: 600; }
+.module__outcome-quote { margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: var(--dusty); }
+
+/* ---------------------------------------------------------------- operations board */
+
+.board-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.board-intro .h2 { margin: 0; max-width: 560px; }
+.board-intro__note { margin: 0; max-width: 460px; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+.board {
+  margin-top: 32px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.board__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.board__title { font-size: 16px; font-weight: 700; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; }
+.chip { padding: 6px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.chip--alert { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* Half-hour columns across the morning peak; bars are placed with
+   grid-column, so a bar's span is its duty window. */
+.board__row {
+  display: grid;
+  grid-template-columns: minmax(150px, 200px) repeat(6, minmax(96px, 1fr));
+  min-width: 760px;
+  border-bottom: 1px solid #EFE6E5;
+  align-items: center;
+}
+.board__row--head {
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.board__row--head span { padding: 10px 6px; }
+.board__row--head span:first-child { padding: 10px 20px; }
+.board__row--alert { background: var(--rose-soft); }
+.board__who { padding: 12px 20px; font-size: 13px; }
+.board__state { color: var(--muted); }
+.board__state--flag { color: var(--brand); font-weight: 700; }
+
+.bar {
+  margin: 6px;
+  padding: 8px 10px;
+  background: var(--maroon);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar--ghost { background: #EFE6E5; color: var(--ink); }
+.bar--late { border-left: 6px solid var(--brand); }
+.bar--open {
+  padding: 6px 10px;
+  background: none;
+  border: 2px dashed var(--brand);
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.kpis {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.kpi {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.kpi__label {
+  margin: 0 0 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kpi__value { margin: 0; font-family: var(--serif); font-size: 28px; line-height: 1; }
+.kpi__value small { font-family: var(--sans); font-size: 14px; color: var(--muted); }
+.kpi--alert { background: var(--rose-soft); border-color: #E6B9B9; }
+.kpi--alert .kpi__label { color: var(--brand); }
+.kpi__body { margin: 0; font-size: 14px; line-height: 1.4; }
+
 /* ---------------------------------------------------------------- footer */
 
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); }
@@ -922,6 +1249,19 @@ img { max-width: 100%; }
   .form { padding: 24px; }
   .stack__row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .site-footer__inner { gap: 28px; }
+
+  /* The manifest drops its status column onto its own line, and the module
+     panel stops holding the stat tile and the bullets side by side. */
+  .manifest__row,
+  .manifest__row--head { grid-template-columns: 52px minmax(0, 1fr) 44px 44px; }
+  .manifest__status,
+  .manifest__row--head span:last-child { grid-column: 2 / -1; }
+  .manifest__row--head span:last-child { padding-top: 4px; }
+
+  .module { padding: 24px; gap: 32px; }
+  .module__figures { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+
+  .board-intro { gap: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
