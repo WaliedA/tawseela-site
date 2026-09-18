@@ -23,6 +23,7 @@ assets/tawseela-logo-red-clean.png
 assets/favicon.png          logo mark, square
 favicon.ico
 assets/hero/*.jpg           segment hero photography (1200px, ~110-150 KB each)
+assets/modules/*.jpg        the five Modules tab illustrations (1200px, ~80-90 KB)
 assets/app/map-bg.png       street-map backdrop for the app mockups
 assets/app/avatar.png       rider avatar in the app mockups
 render.yaml                 Render static-site blueprint
@@ -94,11 +95,6 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
   overflows below ~760px; the design handoff listed a hamburger as an open
   item. A hamburger is implemented here, in the design's own language.
 - **Contact form.** See below.
-- **Module illustrations.** The five images behind the Modules tabs are the
-  only assets not self-hosted — they are still Gamma CDN URLs in the `MODULES`
-  array in `assets/app.js`, because the CDN blocks the environment the site was
-  built from. If one fails to load the `<img>` is removed and the slot's label
-  shows, so a dead URL never renders as a broken image.
 - **`assets/app/map-bg.png`.** The original 1173×696 asset could not be
   retrieved intact — only the top 51% of the PNG survived the design API's
   256 KiB per-file cap. The shipped file rebuilds full height by repeating the
@@ -128,14 +124,11 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
 3. **Replace the hero photography.** `assets/hero/*.jpg` are the
    Gamma-generated placeholders from the design, downloaded and recompressed.
    Swap in owned photography.
-4. **Self-host the module illustrations.** Download the five Gamma images
-   referenced in `MODULES` (`assets/app.js`) into `assets/modules/` and
-   repoint them, so the site carries no third-party image dependency.
-5. **Decide on SEO.** Hash routing means the six inner views are not separately
+4. **Decide on SEO.** Hash routing means the six inner views are not separately
    indexable. If organic search on segment terms matters, split them into real
    paths (`/school-transport`, `/corporate-transport`, …) — the markup is
    already one `<div data-route>` per view, so the split is mechanical.
-6. **Add analytics and a privacy notice** if either is required.
+5. **Add analytics and a privacy notice** if either is required.
 
 ## Deploy
 

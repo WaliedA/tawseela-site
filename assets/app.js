@@ -232,10 +232,13 @@
   /* ------------------------------------------------------------- modules */
 
   /* The five platform modules shown on the home page, one tab each. Copy is
-     verbatim from the design source. `image` is the only asset on the site
-     still served from Gamma's CDN — if it does not load the <img> is dropped
-     and the slot's label shows instead of a broken image. Download the five
-     into assets/modules/ and repoint these to self-host them. */
+     verbatim from the design source.
+
+     Illustrations are self-hosted in assets/modules/. They were previously
+     hotlinked from Gamma's CDN, which refuses cross-origin browser requests:
+     the files fetch fine server-side but every one of them failed in the page,
+     so the error handler below stripped the <img> and each tab rendered with an
+     empty slot. The handler is kept as a backstop, not as the load path. */
   var MODULES = [
     {
       name: 'Manifest',
@@ -251,7 +254,7 @@
       ],
       client: 'National school transport operator',
       outcome: 'Zero unaccounted passengers across two consecutive school years.',
-      image: 'https://cdn.gamma.app/4gsjeiuj32pgkie/design-anything/wmL0IKfs6RZSU2LV7Ilmm/3pZGhq5tB_nk9DW4nadTN.jpg'
+      image: 'assets/modules/manifest.jpg'
     },
     {
       name: 'Duty',
@@ -267,7 +270,7 @@
       ],
       client: 'Corporate staff transport contract',
       outcome: 'Duty breaches stopped being discovered the following week.',
-      image: 'https://cdn.gamma.app/4gsjeiuj32pgkie/design-anything/NHTSsCUzssjazl38WjxjO/fFzpQ9dfSYVrygWNESgUD.jpg'
+      image: 'assets/modules/duty-card.jpg'
     },
     {
       name: 'Guardian',
@@ -283,7 +286,7 @@
       ],
       client: 'School transport, 14 schools',
       outcome: 'Call volume to the transport office down by two thirds.',
-      image: 'https://cdn.gamma.app/4gsjeiuj32pgkie/design-anything/ikP2lr8r7IIGatIUdDnrS/0YdNXNFmsdKntuSMxNAic.jpg'
+      image: 'assets/modules/guardian.jpg'
     },
     {
       name: 'Roster',
@@ -299,7 +302,7 @@
       ],
       client: 'Labour transport, 3 depots',
       outcome: 'Morning peak covered from the standby pool instead of the phone tree.',
-      image: 'https://cdn.gamma.app/4gsjeiuj32pgkie/design-anything/g7szyeJ5d37keucGIIRmL/jfxQUqv5ZifeRJwNUbhp9.jpg'
+      image: 'assets/modules/roster.jpg'
     },
     {
       name: 'Coach',
@@ -315,7 +318,7 @@
       ],
       client: 'Public transit operator',
       outcome: 'At-fault incidents down two thirds in the first full year.',
-      image: 'https://cdn.gamma.app/4gsjeiuj32pgkie/design-anything/v0YC1MnAaaKixCErRhesY/tuZDYXeWMWH6DartakKg8.jpg'
+      image: 'assets/modules/coaching.jpg'
     }
   ];
 
