@@ -234,10 +234,20 @@ img { max-width: 100%; }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
+/* The four segment cards stay on one row at desktop. auto-fit cannot do this
+   here: the container is 1176px and four 280px tracks plus three 20px gaps
+   need 1180px, so it wrapped the fourth card onto its own line. The steps
+   below are explicit rather than inferred. */
 .grid-seg {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
+}
+@media (max-width: 1080px) {
+  .grid-seg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .grid-seg { grid-template-columns: minmax(0, 1fr); }
 }
 .grid-cards { display: grid; gap: 14px; }
 .stack-right { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
