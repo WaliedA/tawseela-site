@@ -102,10 +102,12 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
   Bigin's, byte for byte. Bigin's script rewrites the form's action to
   `https://bigin.zoho.com/crm/WebForm` and calls
   `checkMandatory5045074000002596142()`, which `assets/app.js` defines in order
-  to validate before anything is posted. The reply is cross-origin, so success
-  is inferred from the hidden iframe loading and failure from a 20-second
-  timeout — both paths say exactly what happened and offer email as a
-  fallback.
+  to validate before anything is posted. Bigin's reply is cross-origin: its
+  height cannot be measured, so showing it means a fixed-height frame that
+  scrolls, and it carries its own background. The frame is therefore the POST
+  target only and stays hidden, with the confirmation rendered in the site's
+  own styling on the frame's load. Failure is a 20-second timeout. Both paths
+  say exactly what happened and offer email as a fallback.
 - **`assets/app/map-bg.png`.** The original 1173×696 asset could not be
   retrieved intact — only the top 51% of the PNG survived the design API's
   256 KiB per-file cap. The shipped file rebuilds full height by repeating the

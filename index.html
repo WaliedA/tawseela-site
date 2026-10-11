@@ -920,9 +920,25 @@
     </div>
 
     <div class="contact-panel">
-      <!-- Bigin's reply renders here. It is cross-origin, so the frame cannot
-           size itself to its content; the height is set in styles.css. -->
-      <iframe class="form-result" id="contact-result" name="hidden5045074000002596142Frame" title="Enquiry confirmation" hidden></iframe>
+      <!-- The POST target only, never shown. Bigin's reply page is
+           cross-origin, so its height cannot be measured and a fixed-height
+           frame around it scrolls; it also carries its own background and
+           would sit oddly in the page. We confirm in the site's own styling
+           below instead, on this frame's load. -->
+      <iframe id="contact-result" name="hidden5045074000002596142Frame" title="Enquiry confirmation" aria-hidden="true" tabindex="-1" hidden></iframe>
+
+      <div class="form-done" id="contact-done" role="status" hidden>
+        <svg class="form-done__tick" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/>
+          <path d="M14 24.5 L21 31.5 L34 17.5" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="form-done__title">Thank you for contacting Tawseela. Our team will be in touch.</p>
+        <p class="form-done__body">
+          We reply within two working days. If you do not hear from us, write to
+          <a href="mailto:hello@tawseela.co">hello@tawseela.co</a>.
+        </p>
+      </div>
 
       <!-- Bigin web form 5045074000002596142. The form's name, its hidden
            inputs and every field name are read by Bigin — keep them byte for

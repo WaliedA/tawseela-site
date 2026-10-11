@@ -122,6 +122,13 @@
   var submit = document.getElementById('contact-submit');
 
   function resetContactForm() {
+    /* Also called when the route changes, so leaving #contact and coming back
+       puts the form back in place of a previous confirmation. */
+    var donePanel = document.getElementById('contact-done');
+    if (donePanel && !donePanel.hidden) {
+      donePanel.hidden = true;
+      if (form) form.hidden = false;
+    }
     if (!status) return;
     status.hidden = true;
     status.textContent = '';
@@ -190,6 +197,7 @@
   }
 
   var result = document.getElementById('contact-result');
+  var done = document.getElementById('contact-done');
   var sending = false;
   var sendTimer = null;
   var submitLabel = submit ? submit.textContent : 'Send';
@@ -260,14 +268,22 @@
   };
 
   if (result) {
-    /* Bigin answers into the iframe. That page is cross-origin so its content
-       cannot be read; a load that happens after we posted is the reply, and we
-       show it in place of the form. */
+    /* Bigin answers into the iframe. That page is cross-origin, so its content
+       cannot be read and its height cannot be measured — showing it means a
+       fixed-height frame that scrolls. A load after we posted is the reply, so
+       we swap in our own confirmation instead and leave the frame hidden. */
     result.addEventListener('load', function () {
       if (!sending) return;
       stopSending();
       form.hidden = true;
-      result.hidden = false;
+      /* Sent, so clear it: coming back to #contact should offer a fresh form,
+         not the previous enquiry. */
+      form.reset();
+      if (done) {
+        done.hidden = false;
+        done.setAttribute('tabindex', '-1');
+        done.focus();
+      }
     });
   }
 
