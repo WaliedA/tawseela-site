@@ -4,12 +4,15 @@
 (function () {
   'use strict';
 
-  /* Where the contact form posts. Empty by default: nothing is wired yet, so
-     the form hands off to email rather than silently discarding the enquiry.
-     Set this to your form endpoint (Formspree, a Lambda, your CRM webhook)
-     before launch and the form will POST JSON to it. */
-  var FORM_ENDPOINT = '';
+  /* The contact form posts to Bigin — see the comment above the form in
+     index.html. This address is the fallback for when Bigin cannot be
+     reached, so an enquiry is never silently dropped. */
   var CONTACT_EMAIL = 'hello@tawseela.co';
+
+  /* Bigin replies into a hidden iframe and the reply is cross-origin, so the
+     only signals available are "the frame loaded" and "it never did". This is
+     how long to wait before calling it a failure. */
+  var SUBMIT_TIMEOUT_MS = 20000;
 
   var ROUTES = ['home', 'school', 'staff', 'transit', 'multimodal', 'platform', 'contact'];
   var TITLES = {
@@ -138,19 +141,37 @@
     });
   }
 
+  /* Bigin's field names, mapped to the short keys used below. These strings
+     are Bigin's, not ours — they must match index.html exactly. */
+  var FIELDS = {
+    name: 'Contacts.Last Name',
+    org: 'Accounts.Account Name',
+    email: 'Contacts.Email',
+    segment: 'Accounts.ACCOUNTCF3',
+    fleet: 'Accounts.ACCOUNTCF51'
+  };
+
   function readFields() {
     var data = {};
-    Array.prototype.forEach.call(form.elements, function (el) {
-      if (el.name) data[el.name] = el.value.trim();
+    Object.keys(FIELDS).forEach(function (key) {
+      var el = form.elements[FIELDS[key]];
+      data[key] = el ? el.value.trim() : '';
     });
     return data;
   }
 
   function firstProblem(data) {
     if (!data.name) return { field: 'name', message: 'Please give us a name so we know who we are replying to.' };
+    /* Organisation is mandatory on Bigin's side, so catch it here rather than
+       letting Bigin reject the post after the fact. */
+    if (!data.org) return { field: 'org', message: 'Please give us your organisation — Bigin files the enquiry against it.' };
     if (!data.email) return { field: 'email', message: 'A work email is required — that is where the reply goes.' };
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       return { field: 'email', message: '“' + data.email + '” is not a valid email address.' };
+    }
+    /* Bigin types this field as a number and rejects anything else. */
+    if (data.fleet && !/^[0-9]+$/.test(data.fleet)) {
+      return { field: 'fleet', message: 'Fleet size takes a whole number of vehicles, such as 120 — “' + data.fleet + '” is not one.' };
     }
     return null;
   }
@@ -168,66 +189,91 @@
       '&body=' + encodeURIComponent(body);
   }
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      resetContactForm();
+  var result = document.getElementById('contact-result');
+  var sending = false;
+  var sendTimer = null;
+  var submitLabel = submit ? submit.textContent : 'Send';
 
-      var data = readFields();
-      var problem = firstProblem(data);
-      if (problem) {
-        say('error', '<strong>That did not send.</strong>' + escapeHtml(problem.message));
-        var field = form.elements[problem.field];
-        if (field) field.focus();
-        return;
-      }
+  function stopSending() {
+    sending = false;
+    clearTimeout(sendTimer);
+    if (submit) {
+      submit.disabled = false;
+      submit.textContent = submitLabel;
+    }
+  }
 
-      if (!FORM_ENDPOINT) {
-        /* No backend is wired yet. Hand the enquiry to email rather than
-           showing a thank-you for a message that went nowhere. The mailto is
-           a link the visitor clicks, not an automatic redirect — a redirect
-           looks broken on a machine with no mail client configured. */
-        say('ok',
-          'One more step — this form has no inbox behind it yet. ' +
-          '<a href="' + mailtoFor(data) + '"><strong>Send these details to ' +
-          CONTACT_EMAIL + '</strong></a>, or write to us directly at ' +
-          '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.');
-        return;
-      }
+  /* Bigin's script never loaded — blocked, offline, or Bigin is down. Without
+     it the form has no action and would post back to this site, so say what
+     happened and hand the details to email instead of faking a success. */
+  function contactUnavailable() {
+    say('error',
+      '<strong>That did not send.</strong>The enquiry form could not reach our CRM, so ' +
+      'nothing was submitted. <a href="' + mailtoFor(readFields()) + '">Send these details to ' +
+      CONTACT_EMAIL + '</a> instead, or reload the page and try again.');
+    return false;
+  }
 
+  /* The form's onsubmit. Bigin's script defines
+     validateForm5045074000002596142(), which submits the form itself via
+     form.submit() once validation passes. We therefore always return false:
+     that cancels the browser's own submit so the post happens exactly once,
+     rather than both programmatically and natively. */
+  window.tawseelaSubmitContact = function () {
+    if (typeof window.validateForm5045074000002596142 === 'function') {
+      window.validateForm5045074000002596142();
+      return false;
+    }
+    return contactUnavailable();
+  };
+
+  /* Bigin's validateForm calls this and submits only if it returns true. */
+  window.checkMandatory5045074000002596142 = function () {
+    resetContactForm();
+
+    var data = readFields();
+    var problem = firstProblem(data);
+    if (problem) {
+      say('error', '<strong>That did not send.</strong>' + escapeHtml(problem.message));
+      var field = form.elements[FIELDS[problem.field]];
+      if (field) field.focus();
+      return false;
+    }
+
+    if (sending) return false;
+    sending = true;
+    if (submit) {
       submit.disabled = true;
-      var label = submit.textContent;
       submit.textContent = 'Sending…';
+    }
 
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data)
-      }).then(function (res) {
-        return res.text().then(function (text) {
-          if (!res.ok) {
-            var detail = text && text.slice(0, 400);
-            throw new Error(
-              'The form endpoint returned ' + res.status + ' ' + (res.statusText || '') +
-              (detail ? ': ' + detail : '')
-            );
-          }
-        });
-      }).then(function () {
-        form.reset();
-        say('ok', 'Thank you. We will reply within two working days.');
-      }).catch(function (err) {
-        say('error',
-          '<strong>That did not send.</strong>' +
-          escapeHtml(err && err.message ? err.message : String(err)) +
-          ' Your details are still in the form — retry, or email ' +
-          '<a href="' + mailtoFor(data) + '">' + CONTACT_EMAIL + '</a> directly.');
-      }).then(function () {
-        submit.disabled = false;
-        submit.textContent = label;
-      });
+    sendTimer = setTimeout(function () {
+      stopSending();
+      say('error',
+        '<strong>That did not send.</strong>Our CRM did not answer within ' +
+        (SUBMIT_TIMEOUT_MS / 1000) + ' seconds, so the enquiry may not have reached us. ' +
+        'Your details are still in the form — retry, or <a href="' + mailtoFor(readFields()) +
+        '">email them to ' + CONTACT_EMAIL + '</a>.');
+    }, SUBMIT_TIMEOUT_MS);
+
+    return true;
+  };
+
+  if (result) {
+    /* Bigin answers into the iframe. That page is cross-origin so its content
+       cannot be read; a load that happens after we posted is the reply, and we
+       show it in place of the form. */
+    result.addEventListener('load', function () {
+      if (!sending) return;
+      stopSending();
+      form.hidden = true;
+      result.hidden = false;
     });
   }
+
+  /* The script tag's onerror may fire after this file runs, so check both now
+     and at submit time. */
+  if (form && window.tawseelaBiginFailed) contactUnavailable();
 
   /* ------------------------------------------------------------- modules */
 

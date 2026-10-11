@@ -26,6 +26,7 @@ assets/hero/*.jpg           segment hero photography (1200px, ~110-150 KB each)
 assets/modules/*.jpg        the five Modules tab illustrations (1200px, ~80-90 KB)
 assets/app/map-bg.png       street-map backdrop for the app mockups
 assets/app/avatar.png       rider avatar in the app mockups
+assets/qr/talk-to-us.svg    QR to the Bigin-hosted copy of the enquiry form
 render.yaml                 Render static-site blueprint
 ```
 
@@ -94,7 +95,17 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
 - **Mobile navigation.** The design's six-item nav is `white-space: nowrap` and
   overflows below ~760px; the design handoff listed a hamburger as an open
   item. A hamburger is implemented here, in the design's own language.
-- **Contact form.** See below.
+- **Contact form.** The enquiry form is Bigin web form
+  `5045074000002596142`. Bigin's own markup ships with a stylesheet that
+  restyles `html`/`body`; that is deliberately not included, so the form keeps
+  the site's styling while its `name`, hidden inputs and field names are
+  Bigin's, byte for byte. Bigin's script rewrites the form's action to
+  `https://bigin.zoho.com/crm/WebForm` and calls
+  `checkMandatory5045074000002596142()`, which `assets/app.js` defines in order
+  to validate before anything is posted. The reply is cross-origin, so success
+  is inferred from the hidden iframe loading and failure from a 20-second
+  timeout — both paths say exactly what happened and offer email as a
+  fallback.
 - **`assets/app/map-bg.png`.** The original 1173×696 asset could not be
   retrieved intact — only the top 51% of the PNG survived the design API's
   256 KiB per-file cap. The shipped file rebuilds full height by repeating the
@@ -112,12 +123,11 @@ App screens (Multimodal hero): CTA `#5D63FF`, ring colours `#EB2026` `#22CBA9`
 
 ## Before launch
 
-1. **Wire the contact form.** `FORM_ENDPOINT` at the top of `assets/app.js` is
-   empty. While it is empty the form does not pretend to send: it validates,
-   then hands the enquiry to the visitor's mail client prefilled for
-   `hello@tawseela.co` and says so on screen. Set `FORM_ENDPOINT` to a real
-   endpoint and it POSTs the fields as JSON, showing the endpoint's own error
-   text if the post fails.
+1. **Send one real test enquiry** and confirm it lands in Bigin as a deal on
+   the right pipeline. The form posts to a live CRM, so this was never tested
+   end to end from here — only the validation paths, which all fail closed.
+   Check too that `Pipeline` is right: the hidden input is set to `Standard`,
+   which is what Bigin generated, but the field offers a `Tawseela` option.
 2. **Replace the contact placeholders** — `hello@tawseela.co` and "Dubai,
    United Arab Emirates" appear in `index.html` and in `CONTACT_EMAIL` in
    `assets/app.js`.

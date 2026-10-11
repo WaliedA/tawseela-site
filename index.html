@@ -906,24 +906,68 @@
         <a href="mailto:hello@tawseela.co">hello@tawseela.co</a>
         <span style="color:var(--muted)">Dubai, United Arab Emirates</span>
       </div>
+
+      <!-- Same enquiry form, hosted by Bigin. For a phone at a stand or a
+           printed page. -->
+      <div class="qr-card">
+        <img class="qr-card__code" src="assets/qr/talk-to-us.svg" alt="" width="148" height="148" loading="lazy">
+        <div>
+          <p class="qr-card__label">Scan to enquire</p>
+          <p class="qr-card__body">Opens this same form on your phone.</p>
+          <a class="qr-card__link" href="https://us.bigin.online/org762057775/forms/tawseela-talk-to-us">Open the hosted form →</a>
+        </div>
+      </div>
     </div>
 
-    <form class="form" id="contact-form" novalidate>
-      <label>Name<input type="text" name="name" autocomplete="name" required></label>
-      <label>Organisation<input type="text" name="org" autocomplete="organization"></label>
-      <label>Work email<input type="email" name="email" autocomplete="email" required></label>
-      <label>What do you move?
-        <select name="segment">
-          <option>School transport</option>
-          <option>Corporate transport</option>
-          <option>Public transit</option>
-          <option>Other passenger operation</option>
-        </select>
-      </label>
-      <label>Fleet size<input type="text" name="fleet" placeholder="e.g. 120 buses, 300 drivers"></label>
-      <button class="btn" type="submit" id="contact-submit">Send</button>
-      <p class="form__status" id="contact-status" role="status" aria-live="polite" hidden></p>
-    </form>
+    <div class="contact-panel">
+      <!-- Bigin's reply renders here. It is cross-origin, so the frame cannot
+           size itself to its content; the height is set in styles.css. -->
+      <iframe class="form-result" id="contact-result" name="hidden5045074000002596142Frame" title="Enquiry confirmation" hidden></iframe>
+
+      <!-- Bigin web form 5045074000002596142. The form's name, its hidden
+           inputs and every field name are read by Bigin — keep them byte for
+           byte. The script below rewrites this form's action to
+           https://bigin.zoho.com/crm/WebForm and defines
+           validateForm5045074000002596142(), which calls
+           checkMandatory5045074000002596142() from assets/app.js and submits
+           only when that returns true. Bigin's own stylesheet is deliberately
+           NOT included: it restyles html/body and would break the site. -->
+      <form class="form" id="contact-form"
+            name="BiginWebToRecordForm5045074000002596142"
+            method="POST" enctype="multipart/form-data"
+            target="hidden5045074000002596142Frame" accept-charset="UTF-8"
+            onsubmit="return window.tawseelaSubmitContact()" novalidate>
+
+        <input type="hidden" name="xnQsjsdp" value="fd734df76a2508dabe90629ed13c8a29775caf408ff5926bc920a428224ccf9f">
+        <input type="hidden" name="zc_gad" id="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="3e44b1f28aaa03793f78c741dc89ca207508ffe3df6778c1f03f124b12d984257ba49b30ad55577016bf60b47c409b3a">
+        <input type="hidden" name="actionType" value="UG90ZW50aWFscw==">
+        <input type="hidden" name="rmsg" id="rmsg" value="true">
+        <input type="hidden" name="returnURL" value="null">
+        <input type="hidden" name="Pipeline" value="Standard">
+        <input type="hidden" name="Stage" value="Qualification">
+        <input type="hidden" name="Potential Name" value="Tawseela enquiry">
+
+        <label>Name<input type="text" name="Contacts.Last Name" maxlength="80" autocomplete="name" required></label>
+        <label>Organisation<input type="text" name="Accounts.Account Name" maxlength="200" autocomplete="organization" required></label>
+        <label>Work email<input type="email" name="Contacts.Email" maxlength="100" autocomplete="email" required></label>
+        <label>What do you move?
+          <select name="Accounts.ACCOUNTCF3">
+            <option value="School transport">School transport</option>
+            <option value="Corporate transport">Corporate transport</option>
+            <option value="Public transit">Public transit</option>
+            <option value="Other passenger operation">Other passenger operation</option>
+          </select>
+        </label>
+        <!-- Bigin validates this field as a whole number, so it cannot take
+             "120 buses, 300 drivers" the way the old free-text field did. -->
+        <label>Fleet size<input type="text" name="Accounts.ACCOUNTCF51" maxlength="9" inputmode="numeric" pattern="[0-9]*" placeholder="Vehicles, e.g. 120"></label>
+        <button class="btn" type="submit" id="contact-submit">Send</button>
+        <p class="form__status" id="contact-status" role="status" aria-live="polite" hidden></p>
+      </form>
+
+      <script src="https://bigin.zoho.com/crm/WebformScriptServlet?rid=3e44b1f28aaa03793f78c741dc89ca207508ffe3df6778c1f03f124b12d984257ba49b30ad55577016bf60b47c409b3agidfd734df76a2508dabe90629ed13c8a29775caf408ff5926bc920a428224ccf9f" onerror="window.tawseelaBiginFailed = true"></script>
+    </div>
   </section>
 
 </div>

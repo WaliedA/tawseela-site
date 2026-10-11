@@ -539,10 +539,57 @@ img { max-width: 100%; }
 .form select:focus { border-color: var(--brand); outline: none; box-shadow: 0 0 0 3px rgba(205, 50, 57, .15); }
 .form .btn { margin-top: 6px; padding: 16px 24px; }
 
+/* The form carries hidden Bigin inputs; they must not become grid rows. */
+.form > input[type="hidden"] { display: none; }
+.form[hidden] { display: none; }
+
+/* Bigin's reply. Its page is cross-origin, so the frame cannot size itself to
+   its content and the height has to be set here. */
+.form-result {
+  display: block;
+  width: 100%;
+  height: 310px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.form-result[hidden] { display: none; }
+
 .form__status { margin: 0; font-size: 15px; line-height: 1.5; }
 .form__status--ok { color: var(--brand-deep); }
 .form__status--error { color: var(--brand-deep); }
 .form__status--error strong { display: block; margin-bottom: 4px; }
+
+/* Scan-to-enquire card: the same Bigin form, hosted, for a phone camera. */
+.qr-card {
+  margin-top: 36px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  max-width: 440px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.qr-card__code {
+  width: 148px;
+  height: 148px;
+  flex: none;
+  display: block;
+  background: #fff;
+  border-radius: 4px;
+}
+.qr-card__label {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.qr-card__body { margin: 0 0 12px; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.qr-card__link { font-size: 14px; font-weight: 600; }
 
 /* ---------------------------------------------------------------- app mockups (multimodal hero) */
 
@@ -1247,6 +1294,9 @@ img { max-width: 100%; }
   .cap > div:nth-child(even) { padding: 20px 0; border-left: 0; }
 
   .form { padding: 24px; }
+  /* Bigin's confirmation card wraps to a taller box at phone width. */
+  .form-result { height: 350px; }
+  .qr-card { flex-direction: column; align-items: flex-start; gap: 16px; }
   .stack__row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .site-footer__inner { gap: 28px; }
 
